@@ -5,7 +5,7 @@
               Editar Crud
           </div>
           <div class="card-body">
-              <form v-on:submit.prevent="EditarRegistro">
+              <form v-on:submit.prevent="editarRegistro">
                   <div class="form-group">
                       <label for="">Nombre: </label>
                       <input type="text"
@@ -37,7 +37,36 @@ export default {
       return{
           registro:{}
       }
-  }
+  },
+  created:function(){
+    this.obtenerDatos();
+  },
+  methods:{
+    obtenerDatos(){
+        
+            fetch('http://localhost/basecrud/?consultar='+this.$route.params.id)
+            .then(respuesta =>respuesta.json())
+            .then((datosRespuesta)=>{
+
+                console.log(datosRespuesta)
+                this.registro= datosRespuesta[0];
+            })
+            .catch(console.log)
+        },
+        editarRegistro(){
+
+            var datosEnviar = {id:this.$route.params.id, nombre:this.registro.nombre,correo:this.registro.correo}
+            fetch('http://localhost/basecrud/?actualizar='+this.$route.params.id,{
+              method:'POST',
+              body:JSON.stringify(datosEnviar)
+          })
+          .then(respuesta =>respuesta.json())
+          .then((datosRespuesta=>{
+              console.log(datosRespuesta);
+              window.location.href='../lista'
+          }))
+        }    
+    }
 }
 
 </script>

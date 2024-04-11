@@ -1,5 +1,6 @@
 <template>
     <div class="container"> 
+        <router-link to="/crear" class="btn btn-success m-2">Agregar Nuevo Registro</router-link> 
         <div class="card">
             <div class="card-header">
                 Crud de Prueba
