@@ -1,8 +1,11 @@
 <template>
   <div class="container">
+        <div class="home">
+            <img alt="Vue logo" src="../assets/logo.png" width="70px">
+        </div>
       <div class="card">
-          <div class="card-header">
-              Crud
+          <div class="card-header" style="text-align: center; font-size: 25px;">
+              Crear Nuevo Registro
           </div>
           <div class="card-body">
               <form v-on:submit.prevent="agregarRegistro">

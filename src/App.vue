@@ -1,8 +1,8 @@
 <template>
   <nav class="navbar navbar-expand navbar-light bg-light">
     <div class="nav navbar-nav">
-        <router-link to="/" class="nav-link">Crear</router-link> 
-        <router-link to="/" class="nav-link">Lista</router-link> 
+        <router-link to="/crear" class="nav-link">Crear</router-link> 
+        <router-link to="/lista" class="nav-link">Lista</router-link> 
     </div>
   </nav>
 

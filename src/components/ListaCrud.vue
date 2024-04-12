@@ -1,9 +1,12 @@
 <template>
     <div class="container"> 
+        <div class="home">
+            <img alt="Vue logo" src="../assets/logo.png" width="70px">
+        </div>
         <router-link to="/crear" class="btn btn-success m-2">Agregar Nuevo Registro</router-link> 
         <div class="card">
-            <div class="card-header">
-                Crud de Prueba
+            <div class="card-header" style="text-align: center; font-size: 25px;">
+                Listado de Registros
             </div>
             <div class="card-body">
                 <table class="table">
