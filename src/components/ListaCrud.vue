@@ -60,7 +60,7 @@ export default {
 
                 console.log(datosRespuesta)
                 this.crud=[]
-                if(typeof datosRespuesta[0].success==='undefined') // verificamos la propiead success de los elementos datosRespuesta
+                if(typeof datosRespuesta[0].success==='undefined') // verificamos la propiedad success de los elementos datosRespuesta
                 {
                     this.crud= datosRespuesta;
                 }
