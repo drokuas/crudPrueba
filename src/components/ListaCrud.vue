@@ -30,7 +30,7 @@
                                     <router-link :to="{ name: 'editarCrud', params: { id: vista.id } }" class="btn btn-warning m-1">Editar</router-link>
 
                                     
-                                    <button type="button" :key="vista.id" class="btn btn-danger m-1">Borrar</button>       
+                                    <button type="button" v-on:click="borrarRegistro(vista.id)" class="btn btn-danger m-1">Borrar</button>       
                                 </div>
                             </td>
                         </tr>
@@ -74,7 +74,7 @@ export default {
             .then((datosRespuesta)=>{
 
                 console.log(datosRespuesta)
-                window.location.href="lista" // linea para volver a la vista lista 
+                window.location.href="lista" 
             })
             .catch(console.log)
         }
