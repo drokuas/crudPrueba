@@ -74,7 +74,7 @@ export default {
             .then((datosRespuesta)=>{
 
                 console.log(datosRespuesta)
-                window.location.href="lista" 
+                window.location.href="lista" // redireccion a la vista lista
             })
             .catch(console.log)
         }
