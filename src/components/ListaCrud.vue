@@ -30,7 +30,7 @@
                                     <router-link :to="{ name: 'editarCrud', params: { id: vista.id } }" class="btn btn-warning m-1">Editar</router-link>
 
                                     
-                                    <button type="button" v-on:click="borrarRegistro(vista.id)" class="btn btn-danger m-1">Borrar</button>       
+                                    <button type="button" :key="vista.id" class="btn btn-danger m-1">Borrar</button>       
                                 </div>
                             </td>
                         </tr>
@@ -44,8 +44,8 @@
 
 <script>
 export default {
-    data(){
-        return{
+    data(){   //funcion que me devuelve un objeto que contiene los datos de data
+        return{// en este caso me retorna crud
             crud:[]
         }
     },
@@ -53,14 +53,14 @@ export default {
         this.consultarEmpleados();
     },
     methods:{
-        consultarEmpleados(){
-            fetch('http://localhost/basecrud/')
-            .then(respuesta =>respuesta.json())
+        consultarEmpleados(){  // empezamos a realizar la consulta a la base de dato que esta en api 
+            fetch('http://localhost/basecrud/') // aqui realizamos las solicitudes a la web donde tengo ingresada la api en php 
+            .then(respuesta =>respuesta.json()) // esta linea la utilizamos para rescatar los datos  del formato json de la api en php de la base de dato
             .then((datosRespuesta)=>{
 
                 console.log(datosRespuesta)
                 this.crud=[]
-                if(typeof datosRespuesta[0].success==='undefined')
+                if(typeof datosRespuesta[0].success==='undefined') // verificamos la propiead success de los elementos datosRespuesta
                 {
                     this.crud= datosRespuesta;
                 }
@@ -74,7 +74,7 @@ export default {
             .then((datosRespuesta)=>{
 
                 console.log(datosRespuesta)
-                window.location.href="lista"
+                window.location.href="lista" // linea para volver a la vista lista 
             })
             .catch(console.log)
         }
